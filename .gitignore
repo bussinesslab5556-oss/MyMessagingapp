@@ -1,6 +1,28 @@
-node_modules
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS generated
+.DS_Store
+
+# Env files
 .env
-.env.local
-.env.production
-dist
-build
+
+# TypeScript
+*.tsbuildinfo
+
+# Package lock
+package-lock.json
+yarn.lock
+
+# Editor folders
+.vscode/
+.idea/
