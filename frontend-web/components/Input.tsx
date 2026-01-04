@@ -1,18 +1,17 @@
 import React from 'react';
 
-interface Props {
-  placeholder: string;
-  value: string;
-  onChange: (val: string) => void;
-  type?: string;
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
 }
 
-export const Input = ({ placeholder, value, onChange, type = 'text' }: Props) => (
-  <input
-    type={type}
-    placeholder={placeholder}
-    value={value}
-    onChange={(e) => onChange(e.target.value)}
-    className="w-full p-4 mb-4 bg-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-[#0055FF] transition-all"
-  />
-);
+export const Input: React.FC<InputProps> = ({ label, ...props }) => {
+  return (
+    <div className="flex flex-col gap-2 w-full">
+      {label && <label className="text-sm font-medium text-gray-700">{label}</label>}
+      <input
+        {...props}
+        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0055FF] focus:ring-2 focus:ring-[#0055FF]/20 outline-none transition-all font-inter"
+      />
+    </div>
+  );
+};
